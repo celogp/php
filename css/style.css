@@ -1,0 +1,37 @@
+/*
+	Login
+*/
+.profile-img {
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+/*
+	Home
+*/
+
+/* Supporting marketing content */
+.marketing {
+	margin: 20px 0;
+}
+
+.marketing p+h4 {
+	margin-top: 20px;
+}
+
+/* Custom page footer */
+.footer {
+	padding-top: 19px;
+	color: #777;
+	border-top: 1px solid #e5e5e5;
+}
+
+.header {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e5e5e5;
+}

@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Terasoftware</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<link href="../../plugins/bootstrap/bootstrap.css" rel="stylesheet">
+		<link href="../../css/style.css" rel="stylesheet">
+
+		<link href="../../plugins/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
+		<link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
+		<link href="../../plugins/selectize/selectize.bootstrap3.css" rel="stylesheet" />
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body class="fuelux">
+
+		<div class="container">
+			<div class="header clearfix">
+				<h3 class="text-muted">Cadastro de usuários</h3>
+			</div>
+			
+			<div class="row marketing">
+				<div id="msgSuccess" class="alert alert-success" role="alert" hidden="true"></div>
+				<div id="msgInfo" class="alert alert-info" role="alert" hidden="true"></div>
+				<div id="msgWarning" class="alert alert-warning" role="alert" hidden="true"></div>
+				<div id="msgDanger" class="alert alert-danger" role="alert" hidden="true"></div>	
+			
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#tabCrudDetalheUsu" data-toggle="tab" id="pnlCrudDetalheUsu">Detalhe</a>
+					</li>
+					<li>
+						<a href="#tabCrudPesquisaUsu" data-toggle="tab" id="pnlCrudPesquisaUsu">Pesquisa</a>
+					</li>
+				</ul>			
+				<div class="tab-content">
+					<div class="tab-pane active" id="tabCrudDetalheUsu">
+						<div class="row marketing">
+							<form id="formCrudUsuario" class="form-horizontal" role="form">
+							
+								<label for="text">Código</label>
+								<input type="text" class="form-control" id="crudCodigoUsuario" placeholder="Código" disabled>
+								
+								<label for="text">Login</label>
+								<input type="text" class="form-control" id="crudLoginUsuario"  placeholder="Login"  size="35" >
+								
+								<label>Senha</label>
+								<input type="password" class="form-control" id="crudSenhaUsuario" />
+								
+								<label for="select-beast">Sexo</label>
+								<select id="select-beast" class="demo-default" placeholder="Select a sexo...">
+									<option value="">Select a sexo...</option>
+								</select>
+								
+								<label for="select-ativo">Ativo</label>
+								<select id="select-ativo" placeholder="Select a ativo..">
+									<option value="">Select a ativo...</option>
+								</select>
+								
+								<label>Estado Civil</label>
+								<select class="form-control" placeholder="Select a fixo.." id="estadocivil">
+								</select>
+				
+							</form>				
+						</div>	
+							
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+							<a class="btn btn-lg btn-default" role="button" id="btnCrudSalvarUsuario"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+							<a href="../home.html" class="btn btn-lg btn-default" role="button" id="btnHome"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+							<a href="javascript:history.back()" class="btn btn-lg btn-default" role="button" id="btnBackCadastros"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a>
+						</div>	
+					</div>
+					
+					<div class="tab-pane" id="tabCrudPesquisaUsu">
+						<div class="row marketing">
+							<div class="col-md-8 column">
+								<form class="form-inline">
+									<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="CmbCampos">
+									  <input type="text" class="form-control" placeholder="Selecione um campo." id="txtCrudCpoPesquisaUsu" disabled="true">
+									  <div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right">
+										  <li data-value="1"><a href="#">ID</a></li>
+										  <li data-value="2"><a href="#">Login</a></li>
+										</ul>
+									  </div>
+									</div>
+									
+									<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="CmbCondicao">
+									  <input type="text" class="form-control" placeholder="Selecione uma condição." id="txtCrudCondPesquisaUsu" disabled="true">
+									  <div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right">
+										  <li data-value="1"><a href="#">Igual</a></li>
+										  <li data-value="2"><a href="#">Maior Igual</a></li>
+										  <li data-value="3"><a href="#">Menor</a></li>
+										  <li data-value="4"><a href="#">Menor Igual</a></li>
+										  <li data-value="5"><a href="#">Contendo</a></li>
+										  <li data-value="6"><a href="#">Sequencia</a></li>
+										</ul>
+									  </div>
+									</div>
+									
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="Informe um conteudo." id="txtCrudPesquisaUsu">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" id="btnCrudAddExprUsu"  data-toggle="tooltip" data-placement="left" title="Adicionar na expressão de pesquisa">
+												<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+											</button>
+										</span>
+									</div>
+																	
+								</form>
+							</div>
+						
+							<div class="col-md-4 column">
+								<div class="input-group">
+									<button type="button" class="btn btn-default" id="btnCrudPesqUsu" data-toggle="tooltip" data-placement="left" title="Realizar a pesquisa">
+										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+									</button>
+									<button type="button" class="btn btn-default" id="btnCrudExcExprUsu" data-toggle="tooltip" data-placement="left" title="Limpar a expressão de pesquisa">
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row marketing">
+							<div class="pillbox" data-initialize="pillbox" id="pbxCrudFiltroUsu">
+								<ul class="clearfix pill-group"></ul>
+							</div>
+							<table class="table table-bordered" id="tblCrudPesquisaUsu" data-toolbar="#tbarCrudPesquisaUsu">
+								<thead>
+									<tr>
+										<th data-field="state" data-checkbox="true"></th>
+										<th data-field="id">Código</th>
+										<th data-field="login">Login</th>
+										<th data-field="senha">Senha</th>
+									</tr>						
+								</thead>
+							</table>
+						</div>
+						
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+							<a href="#" class="btn btn-lg btn-default" role="button" id="btnCrudExcluiUsu"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a href="../home.html" class="btn btn-lg btn-default" role="button" id="btnHome"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+							<a href="javascript:history.back()" class="btn btn-lg btn-default" role="button" id="btnBackConsulta"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a>
+							
+						</div>			
+					
+					</div>
+					
+				</div>
+		
+			</div>			
+			
+			<footer class="footer">
+				<p>&copy; Terasoftware 2015</p>
+			</footer>
+	  
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="../../plugins/jquery/jquery-2.1.0.min.js"></script>
+		<script src="../../plugins/bootstrap/bootstrap.min.js"></script>
+		<!-- All functions for this theme + document.ready processing
+		-->
+			<script src="../../plugins/bootstrapTable/bootstrap-table.min.js"></script>
+			<script src="../../plugins/bootstrapTable/bootstrap-table-pt-BR.min.js"></script>
+
+			<script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+			<script src="../../plugins/selectize/selectize.min.js"></script>		
+			
+		<script src="../../js/Utils.js"></script>		
+		<script src="../../js/usuario/Usuario.js"></script>	
+		
+	</body>
+</html>
